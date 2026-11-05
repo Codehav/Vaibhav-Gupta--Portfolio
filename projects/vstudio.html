@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en" data-base="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VStudio Case Study — Vaibhav Gupta</title>
+  <meta name="description" content="Case study of VStudio, Vaibhav Gupta's in-progress personal project: a user-friendly online compiler and coding environment built with HTML, CSS and JavaScript.">
+  <meta name="theme-color" content="#faf5ee">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VStudio Case Study — Vaibhav Gupta">
+  <meta property="og:description" content="An in-progress personal project: a user-friendly online compiler and coding environment.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../favicon/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add("js");
+      try {
+        var t = localStorage.getItem("vg-theme");
+        if (t !== "dark" && t !== "light") t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        d.setAttribute("data-theme", t);
+      } catch (e) { d.setAttribute("data-theme", "light"); }
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/sections.css">
+  <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body data-project-id="vstudio">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-site-header>
+    <div class="container header-inner">
+      <a class="wordmark" href="../index.html#home" aria-label="Vaibhav Gupta, home"><span>V</span><span>G</span><i class="wordmark-dot" aria-hidden="true"></i></a>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#journey">Learning Journey</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon icon-close" aria-hidden="true" style="display:none"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="cs-hero">
+        <p class="eyebrow">Case study</p>
+        <span class="status status--progress">In progress</span>
+        <h1>VStudio</h1>
+        <p class="lede">A personal project aiming to bring a polished, user-friendly online compiler and coding environment to the browser.</p>
+      </header>
+
+      <figure class="cs-preview">
+        <img src="../assets/images/projects/vstudio-placeholder.svg" alt="Placeholder preview for VStudio; a real screenshot will replace it." width="1280" height="800" decoding="async">
+        <figcaption>Placeholder image. Real screenshots will be added as the interface settles.</figcaption>
+      </figure>
+
+      <div class="cs-layout">
+        <aside class="cs-aside" aria-labelledby="glance-title">
+          <h2 id="glance-title">At a glance</h2>
+          <dl>
+            <div><dt>Status</dt><dd>In progress</dd></div>
+            <div><dt>Type</dt><dd>Personal project</dd></div>
+            <div><dt>Tech</dt><dd>HTML, CSS, JavaScript</dd></div>
+            <div data-project-link-row hidden><dt>Source</dt><dd><a data-project-link="repo">GitHub repository</a></dd></div>
+            <div data-project-link-row hidden><dt>Live</dt><dd><a data-project-link="demo">Live demo</a></dd></div>
+          </dl>
+        </aside>
+
+        <div class="cs-main">
+          <!--
+            EDITING GUIDE: Move an item from "Planned" to "Worked on so far" only after you
+            have checked your own source code and tested it. Do not mark online code execution
+            as working until a compiler backend is connected and tested.
+          -->
+          <section aria-labelledby="problem">
+            <h2 id="problem">Problem and motivation</h2>
+            <p>Learning to program means moving between editors, compilers and saved files. VStudio is an attempt to bring that workflow into one clean, friendly workspace in the browser, and a way for me to learn by building something I would actually want to use.</p>
+          </section>
+
+          <section aria-labelledby="goals">
+            <h2 id="goals">Goals</h2>
+            <ul class="bullets">
+              <li>Create a polished, user-friendly online coding environment.</li>
+              <li>Let people organise their work as projects they can create, save and return to.</li>
+              <li>Keep the frontend built with plain HTML, CSS and JavaScript so I understand every part of it.</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="worked-on">
+            <h2 id="worked-on">Worked on so far</h2>
+            <ul class="bullets">
+              <li>Frontend interface built with HTML, CSS and JavaScript, opened and viewed locally in the browser.</li>
+              <li>Project and account-style flows: creating projects, saving projects, recent projects and logout behaviour.</li>
+              <li>Frontend testing and debugging, currently the main priority.</li>
+            </ul>
+            <p>These flows are still being tested. I’m not presenting them as finished.</p>
+          </section>
+
+          <section aria-labelledby="planned">
+            <h2 id="planned">Planned</h2>
+            <ul class="bullets">
+              <li>Code editor and language selection.</li>
+              <li>Run code through a connected compiler backend. Online execution is a goal, and won’t be described as working until it is integrated and tested.</li>
+              <li>Full user authentication and account handling.</li>
+              <li>AI-assisted coding.</li>
+              <li>Saved snippets.</li>
+              <li>Coding challenges and progress features.</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="stack">
+            <h2 id="stack">Tech stack</h2>
+            <ul class="tag-list" aria-label="Technologies used"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">JavaScript</li></ul>
+          </section>
+
+          <section aria-labelledby="screens">
+            <h2 id="screens">Screenshots</h2>
+            <p>Screenshots will be added here once the interface is stable enough to show.</p>
+          </section>
+
+          <section aria-labelledby="challenges">
+            <h2 id="challenges">Development challenges</h2>
+            <p>Some project persistence and session behaviour needed debugging, particularly around creating and saving projects, listing recent projects, and what happens on logout.</p>
+          </section>
+
+          <section aria-labelledby="solutions">
+            <h2 id="solutions">Solutions attempted</h2>
+            <p>I’m approaching these by testing each flow in the browser, reproducing the problem, and working through how state and sessions are handled until the behaviour is predictable.</p>
+          </section>
+
+          <section aria-labelledby="status">
+            <h2 id="status">Current status</h2>
+            <p>In progress: frontend testing and debugging.</p>
+          </section>
+
+          <section aria-labelledby="next">
+            <h2 id="next">Next steps</h2>
+            <ul class="bullets">
+              <li>Finish debugging project saving, recent projects and session behaviour.</li>
+              <li>Add real screenshots and publish the source on GitHub.</li>
+              <li>Investigate and test a real compiler backend before making any execution claims.</li>
+            </ul>
+          </section>
+
+          <p style="margin-top:var(--s-6)"><a class="btn btn--ghost" href="../index.html#projects"><svg class="icon" aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-arrow-right"/></svg> Back to projects</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="margin-top:0;padding-top:0;border:0">
+        <p>© <span data-year>2026</span> Vaibhav Gupta</p>
+        <a class="btn btn--ghost btn--sm" href="#main">Back to top <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/site-config.js"></script>
+  <script src="../data/projects.js"></script>
+  <script src="../js/projects.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/navigation.js"></script>
+</body>
+</html>

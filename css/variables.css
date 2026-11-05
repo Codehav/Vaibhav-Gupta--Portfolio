@@ -1,0 +1,87 @@
+/* Design tokens — edit here to re-theme the whole site. */
+:root {
+  /* Typography (system stacks: no external font requests) */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1.0625rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --fs-2xl: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --fs-hero: clamp(2.5rem, 1.5rem + 4.8vw, 5.25rem);
+
+  /* Spacing */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4.5rem;
+  --s-9: 7rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --section-y: clamp(4rem, 9vw, 7.5rem);
+  --container: 1180px;
+  --measure: 62ch;
+  --header-h: 4rem;
+
+  /* Radii */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-pill: 999px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --t-fast: 150ms var(--ease);
+  --t-med: 320ms var(--ease);
+  --t-slow: 700ms var(--ease);
+
+  /* Light theme: Burgundy + warm cream */
+  --bg: #faf5ee;
+  --bg-header: rgba(250, 245, 238, 0.92);
+  --surface: #fffaf3;
+  --surface-2: #f2e9dc;
+  --text: #2a2326;
+  --muted: #655a5d;
+  --primary: #6e1423;
+  --primary-strong: #4a0d18;
+  --on-primary: #fff8f0;
+  --link: #6e1423;
+  --accent: #b5707e;
+  --accent-soft: rgba(181, 112, 126, 0.16);
+  --border: #dcd2c6;
+  --border-strong: #c6b9aa;
+  --focus: #6e1423;
+
+  --shadow-sm: 0 1px 2px rgba(42, 35, 38, 0.06);
+  --shadow-md: 0 10px 30px -12px rgba(74, 13, 24, 0.22);
+  color-scheme: light;
+}
+
+/* Dark theme: charcoal + wine */
+[data-theme="dark"] {
+  --bg: #171214;
+  --bg-header: rgba(23, 18, 20, 0.92);
+  --surface: #211a1d;
+  --surface-2: #2b2125;
+  --text: #f1e8e2;
+  --muted: #b9aaad;
+  --primary: #9b2c40;
+  --primary-strong: #7d2234;
+  --on-primary: #fff8f0;
+  --link: #e8a0ae;
+  --accent: #c98593;
+  --accent-soft: rgba(201, 133, 147, 0.16);
+  --border: #3a2f33;
+  --border-strong: #52444a;
+  --focus: #e8a0ae;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 14px 34px -14px rgba(0, 0, 0, 0.65);
+  color-scheme: dark;
+}

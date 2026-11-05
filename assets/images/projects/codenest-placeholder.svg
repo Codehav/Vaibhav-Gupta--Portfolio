@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" role="img" aria-label="Placeholder preview for CodeNest">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6e1423"/><stop offset="1" stop-color="#2e0810"/></linearGradient>
+  </defs>
+  <rect width="1280" height="800" fill="url(#g)"/>
+  <rect x="120" y="120" width="1040" height="560" rx="14" fill="none" stroke="#fff8f0" stroke-opacity=".35" stroke-width="2"/>
+  <line x1="120" y1="190" x2="1160" y2="190" stroke="#fff8f0" stroke-opacity=".25" stroke-width="2"/>
+  <line x1="400" y1="190" x2="400" y2="680" stroke="#fff8f0" stroke-opacity=".25" stroke-width="2"/>
+  <text x="640" y="450" text-anchor="middle" font-family="Georgia, serif" font-size="84" font-weight="700" fill="#fff8f0" fill-opacity=".92">CodeNest</text>
+  <text x="640" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#fff8f0" fill-opacity=".7">Screenshot coming soon</text>
+</svg>

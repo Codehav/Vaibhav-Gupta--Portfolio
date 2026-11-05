@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en" data-base="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodeNest Case Study — Vaibhav Gupta</title>
+  <meta name="description" content="Case study of CodeNest, Vaibhav Gupta's in-progress personal project: a browser-based coding workspace with a Monaco editor, accounts, saved projects and a Node.js backend.">
+  <meta name="theme-color" content="#faf5ee">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CodeNest Case Study — Vaibhav Gupta">
+  <meta property="og:description" content="An in-progress personal project: a browser-based coding workspace with a Node.js backend.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../favicon/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add("js");
+      try {
+        var t = localStorage.getItem("vg-theme");
+        if (t !== "dark" && t !== "light") t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        d.setAttribute("data-theme", t);
+      } catch (e) { d.setAttribute("data-theme", "light"); }
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/sections.css">
+  <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body data-project-id="codenest">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-site-header>
+    <div class="container header-inner">
+      <a class="wordmark" href="../index.html#home" aria-label="Vaibhav Gupta, home"><span>V</span><span>G</span><i class="wordmark-dot" aria-hidden="true"></i></a>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#journey">Learning Journey</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon icon-close" aria-hidden="true" style="display:none"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="cs-hero">
+        <p class="eyebrow">Case study</p>
+        <span class="status status--progress">In progress</span>
+        <h1>CodeNest</h1>
+        <p class="lede">A personal project: a browser-based coding workspace with a code editor, user accounts, saved projects and code execution through a backend. Still in development, and currently running locally.</p>
+      </header>
+
+      <figure class="cs-preview">
+        <img src="../assets/images/projects/codenest-placeholder.svg" alt="Placeholder preview for CodeNest; a real screenshot will replace it." width="1280" height="800" decoding="async">
+        <figcaption>Placeholder image. Real screenshots will be added as the interface settles.</figcaption>
+      </figure>
+
+      <div class="cs-layout">
+        <aside class="cs-aside" aria-labelledby="glance-title">
+          <h2 id="glance-title">At a glance</h2>
+          <dl>
+            <div><dt>Status</dt><dd>In progress</dd></div>
+            <div><dt>Type</dt><dd>Personal project</dd></div>
+            <div><dt>Tech</dt><dd>HTML, CSS, JavaScript, Node.js, Express</dd></div>
+            <div><dt>Runs</dt><dd>Locally for now</dd></div>
+            <div data-project-link-row hidden><dt>Source</dt><dd><a data-project-link="repo">GitHub repository</a></dd></div>
+            <div data-project-link-row hidden><dt>Live</dt><dd><a data-project-link="demo">Live demo</a></dd></div>
+          </dl>
+        </aside>
+
+        <div class="cs-main">
+          <!--
+            EDITING GUIDE: Move an item from "Planned" to "Worked on so far" only after you
+            have checked your own source code and tested it. Do not mark online code execution
+            as working until a compiler backend is connected and tested.
+          -->
+          <section aria-labelledby="problem">
+            <h2 id="problem">Problem and motivation</h2>
+            <p>Learning to program means moving between editors, compilers and saved files. CodeNest is my attempt to bring that workflow into one clean browser workspace, and a way for me to learn how the frontend, a backend and an external API fit together by building something I would actually use.</p>
+          </section>
+
+          <section aria-labelledby="goals">
+            <h2 id="goals">Goals</h2>
+            <ul class="bullets">
+              <li>Create a polished, user-friendly coding workspace in the browser.</li>
+              <li>Support several languages from one editor.</li>
+              <li>Let people keep their work as projects they can save and return to.</li>
+              <li>Learn full-stack basics: a plain HTML, CSS and JavaScript frontend talking to a Node.js backend.</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="built">
+            <h2 id="built">What is built so far</h2>
+            <ul class="bullets">
+              <li><strong>Homepage:</strong> a language explorer with search and category filters, a light and dark theme that is remembered between visits, and a responsive mobile menu.</li>
+              <li><strong>Code editor:</strong> built on the Monaco editor (the editor engine behind VS Code), with multiple files, tabs, and creating, renaming and deleting files.</li>
+              <li><strong>Languages:</strong> a language switcher for C++, C, Python, Java, JavaScript, HTML and SQL, each with starter code.</li>
+              <li><strong>Running code:</strong> JavaScript runs in a sandboxed frame in the browser and HTML opens in a preview tab. For C, C++, Python, Java and SQL, the editor sends the code to my Node.js backend, which submits it to the public Judge0 API and returns the result to an output panel. A popup collects program input.</li>
+              <li><strong>Accounts:</strong> sign up and log in through the backend, with hashed passwords (bcrypt) and token-based sessions (JWT).</li>
+              <li><strong>Saving:</strong> auto-save and manual save to the browser, a history of recent projects, and saving projects to a logged-in account.</li>
+              <li><strong>Shortcuts:</strong> Ctrl+S to save and Ctrl+Enter to run.</li>
+              <li><strong>AI assistant panel:</strong> sends the current file and a question to a local Ollama model (Qwen2.5-Coder) through the backend. It only works on a machine that is running Ollama.</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="planned">
+            <h2 id="planned">Planned</h2>
+            <ul class="bullets">
+              <li>Deploy the backend online so a public live demo can work.</li>
+              <li>Move storage from simple JSON files to a proper database.</li>
+              <li>Harden the backend: authentication on every endpoint and rate limiting.</li>
+              <li>A hosted AI option that does not need a local model.</li>
+              <li>Saved snippets, coding challenges and progress features.</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="limits">
+            <h2 id="limits">Known limitations</h2>
+            <ul class="bullets">
+              <li>CodeNest currently runs on my own computer. There is no public live demo yet because the backend is not deployed.</li>
+              <li>The AI assistant needs a local Ollama installation.</li>
+              <li>SQL runs through Judge0 on SQLite, not MySQL.</li>
+              <li>Code execution depends on the free public Judge0 service and its limits.</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="stack">
+            <h2 id="stack">Tech stack</h2>
+            <ul class="tag-list" aria-label="Technologies used">
+              <li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">JavaScript</li>
+              <li class="tag">Monaco Editor</li><li class="tag">Node.js</li><li class="tag">Express</li>
+              <li class="tag">JWT</li><li class="tag">bcrypt</li><li class="tag">Judge0 API</li><li class="tag">Ollama</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="screens">
+            <h2 id="screens">Screenshots</h2>
+            <p>More screenshots, including the editor workspace, will be added here.</p>
+          </section>
+
+          <section aria-labelledby="challenges">
+            <h2 id="challenges">Development challenges</h2>
+            <p>The hardest part has been project persistence and sessions: keeping a project’s identity consistent between local saves and account saves, so saving updates the same project instead of creating duplicates, and making recent projects and logout behave correctly.</p>
+          </section>
+
+          <section aria-labelledby="solutions">
+            <h2 id="solutions">Solutions attempted</h2>
+            <ul class="bullets">
+              <li>Every project gets its own unique ID, and the backend updates a project only when both the ID and the owning account match.</li>
+              <li>The login token is kept in the browser and checked with the backend when the page loads, and logging out clears it.</li>
+              <li>Recent projects are loaded from the account, so they are hidden once the user logs out.</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="status">
+            <h2 id="status">Current status</h2>
+            <p>In progress. The frontend and the local backend are working together, and I am still testing and debugging them.</p>
+          </section>
+
+          <section aria-labelledby="next">
+            <h2 id="next">Next steps</h2>
+            <ul class="bullets">
+              <li>Fix the remaining bugs found while testing.</li>
+              <li>Add real screenshots and publish the source on GitHub.</li>
+              <li>Deploy the backend and add a live demo link.</li>
+            </ul>
+          </section>
+
+          <p style="margin-top:var(--s-6)"><a class="btn btn--ghost" href="../index.html#projects"><svg class="icon" aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-arrow-right"/></svg> Back to projects</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="margin-top:0;padding-top:0;border:0">
+        <p>© <span data-year>2026</span> Vaibhav Gupta</p>
+        <a class="btn btn--ghost btn--sm" href="#main">Back to top <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/site-config.js"></script>
+  <script src="../data/projects.js"></script>
+  <script src="../js/projects.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/navigation.js"></script>
+</body>
+</html>
