@@ -1,4 +1,4 @@
-/* Renders project cards from data/projects.js; fills project links on case-study pages. */
+ /* Renders project cards from data/projects.js; fills project links on case-study pages. */
 (function () {
   var projects = window.PROJECTS || [];
   // Pages inside /projects/ need "../" to reach shared files. Decided from a flag, not from page text.
