@@ -1,7 +1,12 @@
 /* Applies SITE_CONFIG to the page: shows links only when real values exist. */
 (function () {
   var cfg = window.SITE_CONFIG || {};
-  var base = document.documentElement.getAttribute("data-base") || "";
+  // Pages inside /projects/ need "../" to reach shared files. Decided from a flag, not from page text.
+  var base = (document.body && document.body.hasAttribute("data-project-id")) ? "../" : "";
+  // Only allow plain relative file paths (no "javascript:", "data:" or "//host" URLs).
+  function safePath(p) {
+    return typeof p === "string" && /^[A-Za-z0-9_\-.\/ ()]+$/.test(p) && p.indexOf("//") === -1 && p.charAt(0) !== "/";
+  }
 
   function isHttps(v) { return typeof v === "string" && /^https:\/\/\S+$/i.test(v.trim()); }
   function isEmail(v) { return typeof v === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
@@ -11,7 +16,7 @@
     linkedin: isHttps(cfg.linkedin) ? cfg.linkedin.trim() : "",
     leetcode: isHttps(cfg.leetcode) ? cfg.leetcode.trim() : "",
     email: isEmail(cfg.email) ? "mailto:" + cfg.email.trim() : "",
-    resume: cfg.resume ? base + cfg.resume.trim() : ""
+    resume: safePath(cfg.resume && cfg.resume.trim()) ? base + cfg.resume.trim() : ""
   };
 
   document.querySelectorAll("[data-link]").forEach(function (el) {
@@ -55,7 +60,7 @@
 
   // Profile photo
   var img = document.querySelector("[data-profile-img]");
-  if (img && cfg.profileImage) {
+  if (img && safePath(cfg.profileImage)) {
     img.src = base + cfg.profileImage;
     img.alt = cfg.profileImageAlt || "Portrait of Vaibhav Gupta";
     img.hidden = false;

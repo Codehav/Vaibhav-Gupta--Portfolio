@@ -1,7 +1,12 @@
- /* Renders project cards from data/projects.js; fills project links on case-study pages. */
+/* Renders project cards from data/projects.js; fills project links on case-study pages. */
 (function () {
   var projects = window.PROJECTS || [];
-  var base = document.documentElement.getAttribute("data-base") || "";
+  // Pages inside /projects/ need "../" to reach shared files. Decided from a flag, not from page text.
+  var base = (document.body && document.body.hasAttribute("data-project-id")) ? "../" : "";
+  // Only allow plain relative file paths (no "javascript:", "data:" or "//host" URLs).
+  function safePath(p) {
+    return typeof p === "string" && /^[A-Za-z0-9_\-.\/ ()]+$/.test(p) && p.indexOf("//") === -1 && p.charAt(0) !== "/";
+  }
   function isHttps(v) { return typeof v === "string" && /^https:\/\/\S+$/i.test(v.trim()); }
 
   function el(tag, cls, text) {
@@ -36,7 +41,7 @@
 
       var media = el("div", "project-media");
       var img = el("img");
-      img.src = base + p.image;
+      if (safePath(p.image)) img.src = base + p.image;
       img.alt = p.imageAlt || p.title + " preview";
       img.loading = i === 0 ? "eager" : "lazy";
       img.width = 1280; img.height = 800;
@@ -58,7 +63,7 @@
       body.appendChild(tags);
 
       var actions = el("div", "project-actions");
-      actions.appendChild(link("View case study", base + p.caseStudy, false, "arrow-right", false));
+      if (safePath(p.caseStudy)) actions.appendChild(link("View case study", base + p.caseStudy, false, "arrow-right", false));
       if (isHttps(p.repo)) actions.appendChild(link("GitHub", p.repo.trim(), true, "github", true));
       if (isHttps(p.demo)) actions.appendChild(link("Live demo", p.demo.trim(), true, "external", true));
       body.appendChild(actions);
